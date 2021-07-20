@@ -42,7 +42,7 @@ class _FileSelectPageState extends State<FileSelectPage> with RouteAware {
     selectedFiles = await FilePicker.getMultiFile(
       type: FileType.image,
     );
-    if (selectedFiles.length > 0) {
+    if (selectedFiles != null && selectedFiles.length > 0) {
       var fileImage = decodeImage(selectedFiles[0].readAsBytesSync());// Image.file(widget.images[currentImage]);
       var orientations = fileImage.width > fileImage.height ?
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight] :
@@ -58,7 +58,9 @@ class _FileSelectPageState extends State<FileSelectPage> with RouteAware {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text("Image Review"),
