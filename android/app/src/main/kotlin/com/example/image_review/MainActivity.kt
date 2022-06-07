@@ -1,4 +1,4 @@
-package com.bryantrecording.imagereview
+package com.example.image_review
 
 import io.flutter.embedding.android.FlutterActivity
 
